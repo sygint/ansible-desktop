@@ -23,6 +23,15 @@
 
         # File Browsers
         - nemo
+        - dolphin
+
+        # Web Browsers
+        - chromium
+        - vivaldi
+        - firefox
+
+        # Productivity
+        - obsidian
 
   # Wallpaper
 
