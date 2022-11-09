@@ -5,6 +5,13 @@
 
   tasks:
 
+  # Preparation tasks
+
+  - name: upgrade system
+    pacman:
+      update_cache: yes
+      upgrade: yes
+
   # Common packages
 
   - name: install common packages
