@@ -19,6 +19,28 @@
       name:
         # General
         - tmux
+        - python-psutil # for dconf
 
         # File Browsers
         - nemo
+
+  # Wallpaper
+
+  - name: copy wallpaper file
+    copy:
+      src: wallpapers/ansible-galaxy.jpg
+      dest: /usr/share/backgrounds/gnome/ansible-galaxy.jpg
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    become_user: syg
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/gnome/ansible-galaxy.jpg'"
+
+  - name: set wallpaper position
+    become_user: syg
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value:  "'zoom'"
