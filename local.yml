@@ -33,6 +33,11 @@
         # Productivity
         - obsidian
 
+        # Virtualization
+        - virtualbox
+        - virtualbox-guest-iso
+        # - virtualbox-host-modules-arch # for kernel
+
   # Wallpaper
 
   - name: copy wallpaper file
@@ -53,3 +58,14 @@
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value:  "'zoom'"
+
+  # Virtual Box
+  
+  - name: add user to vboxusers
+    ansible.builtin.command: usermod -a -G vboxusers syg
+    
+  - name: load virtualbox kernel module
+    ansible.builtin.command: modprobe vboxdrv
+
+  - name: start and enable vboxweb
+    ansible.builtin.command: systemctl enable --now vboxweb.service
