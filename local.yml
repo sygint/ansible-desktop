@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+
+  # Common packages
+
+  - name: install common packages
+    package:
+      name:
+        # General
+        - tmux
+
+        # File Browsers
+        - nemo
